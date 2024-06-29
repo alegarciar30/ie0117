@@ -12,6 +12,11 @@ typedef struct node {
 void imprimir_lista(nodo *head){
     nodo *current = head;
 
+    if(head == NULL){
+        printf("La lista esta vacia, nada para imprimir\n");
+        return;
+    }
+
     // Recorre la lista, imprimiendo cada elemento
     while(current != NULL){
         printf("%d\n", current->val);
@@ -42,6 +47,7 @@ void dequeue(nodo *head){
     }
     else if(head->next == NULL){
         free(head);
+        //head = NULL;
         return;
     }
 
@@ -79,7 +85,13 @@ int main(){
     dequeue(head);
     dequeue(head);
     imprimir_lista(head);
+    printf("--------\n");
 
+    dequeue(head);
+    imprimir_lista(head);
+    printf("--------\n");
+    
+    dequeue(head);
     return 0;
 
 }
